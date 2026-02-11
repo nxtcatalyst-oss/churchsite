@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Believe | Coeur d'Alene SDA Church</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f172a;
+            --bg-surface: #1e293b;
+            --bg-surface-hover: #334155;
+            --border-subtle: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #92400e;
+            --accent-light: #b45309;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        nav.shrunk .glass-panel {
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .mega-menu-panel {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(-50%) translateY(-8px);
+        }
+
+        .mega-menu-trigger:hover .mega-menu-panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        .doctrine-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .doctrine-card:hover {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: rgba(146, 64, 14, 0.4);
+            transform: translateY(-4px);
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shrunk');
+            } else {
+                nav.classList.remove('shrunk');
+            }
+        });
+    </script>
+</head>
+
+<body class="antialiased selection:bg-[#92400e] selection:text-white pb-20">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-4 py-6 md:px-8 transition-all duration-300">
+        <div class="relative max-w-7xl mx-auto flex items-center justify-center">
+            <div class="glass-panel rounded-full px-6 py-3 flex items-center justify-between w-full relative z-50">
+                <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                    <div
+                        class="w-10 h-10 bg-[#92400e] rounded-xl flex items-center justify-center group-hover:rotate-6 transition-transform">
+                        <iconify-icon icon="solar:church-linear" width="24" class="text-white"></iconify-icon>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight hidden sm:block">CdA Community</span>
+                </a>
+
+                <div class="hidden lg:flex items-center gap-1">
+                    <div class="relative group mega-menu-trigger">
+                        <button
+                            class="px-5 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors flex items-center gap-1">
+                            About Us
+                            <iconify-icon icon="solar:alt-arrow-down-linear" width="16"></iconify-icon>
+                        </button>
+                        <div
+                            class="mega-menu-panel absolute top-[calc(100%+16px)] left-1/2 w-[95vw] max-w-5xl bg-white rounded-xl shadow-2xl p-0 opacity-0 invisible pointer-events-none overflow-hidden border border-white/10 ring-1 ring-black/5">
+                            <div class="grid grid-cols-4 divide-x divide-gray-100">
+                                <a href="about.html"
+                                    class="flex flex-col p-6 hover:bg-gray-50 transition-colors group/item">
+                                    <iconify-icon icon="solar:heart-angle-linear" width="24"
+                                        class="text-[#92400e] mb-2"></iconify-icon>
+                                    <h4 class="text-sm font-bold text-gray-900">About Us</h4>
+                                    <p class="text-[10px] text-gray-500 mt-1">Our story, mission, and beliefs</p>
+                                </a>
+                                <a href="contact.html"
+                                    class="flex flex-col p-6 hover:bg-gray-50 transition-colors group/item">
+                                    <iconify-icon icon="solar:map-point-linear" width="24"
+                                        class="text-[#92400e] mb-2"></iconify-icon>
+                                    <h4 class="text-sm font-bold text-gray-900">Contact & Location</h4>
+                                    <p class="text-[10px] text-gray-500 mt-1">Find us in Coeur d'Alene</p>
+                                </a>
+                                <a href="#"
+                                    class="flex flex-col p-6 hover:bg-gray-50 transition-colors group/item line-through opacity-50">
+                                    <iconify-icon icon="solar:users-group-rounded-linear" width="24"
+                                        class="text-[#92400e] mb-2"></iconify-icon>
+                                    <h4 class="text-sm font-bold text-gray-900">Ministry Staff</h4>
+                                    <p class="text-[10px] text-gray-500 mt-1">Meet our dedicated team</p>
+                                </a>
+                                <a href="beliefs.html"
+                                    class="flex flex-col p-6 hover:bg-gray-50 transition-colors group/item">
+                                    <iconify-icon icon="solar:document-text-linear" width="24"
+                                        class="text-[#92400e] mb-2"></iconify-icon>
+                                    <h4 class="text-sm font-bold text-gray-900">What We Believe</h4>
+                                    <p class="text-[10px] text-gray-500 mt-1">Core values and doctrine</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="index.html#gathering"
+                        class="px-5 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">Worship</a>
+                    <a href="index.html#community"
+                        class="px-5 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">Community</a>
+                    <a href="index.html#media"
+                        class="px-5 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">Media</a>
+                </div>
+
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="index.html#give"
+                        class="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-sm font-bold border border-white/10 transition-all backdrop-blur-md hidden sm:block">
+                        Support
+                    </a>
+                    <button
+                        class="bg-[#92400e] hover:bg-[#b45309] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-[#92400e]/20 transition-all active:scale-95">
+                        Visit Us
+                    </button>
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden w-10 h-10 flex items-center justify-center text-white p-2">
+                        <iconify-icon icon="solar:hamburger-menu-linear" width="24" height="24"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[100] bg-[#0f172a]/95 backdrop-blur-xl opacity-0 invisible pointer-events-none transition-all duration-500">
+        <div class="flex flex-col h-full p-8">
+            <div class="flex items-center justify-between mb-12">
+                <span class="text-white font-bold tracking-tighter">NAVIGATE</span>
+                <button id="close-menu-btn" class="text-white p-2">
+                    <iconify-icon icon="solar:close-circle-linear" width="32" height="32"></iconify-icon>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-8">
+                <a href="index.html"
+                    class="text-4xl font-bold text-white tracking-tighter hover:text-[#92400e] transition-colors">Home</a>
+                <a href="about.html"
+                    class="text-4xl font-bold text-white tracking-tighter hover:text-[#92400e] transition-colors">About</a>
+                <a href="beliefs.html"
+                    class="text-4xl font-bold text-white tracking-tighter hover:text-[#92400e] transition-colors">Beliefs</a>
+                <a href="contact.html"
+                    class="text-4xl font-bold text-white tracking-tighter hover:text-[#92400e] transition-colors">Contact</a>
+                <a href="https://adventistgiving.org/?OrgID=ANIICL" target="_blank"
+                    class="text-4xl font-bold text-[#92400e] tracking-tighter">Give</a>
+            </nav>
+            <div class="mt-auto pt-10 border-t border-white/10">
+                <p class="text-[10px] text-white/40 uppercase tracking-[.3em] font-bold mb-4">Worship with us</p>
+                <p class="text-white/60 text-sm">Saturdays at 10:45am</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="relative pt-48 pb-32 overflow-hidden bg-[#0f172a]">
+        <div class="absolute inset-0 -z-10 opacity-30">
+            <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=2000&auto=format&fit=crop"
+                class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0f172a]/0 via-[#0f172a]/70 to-[#0f172a]"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 md:px-8 text-center relative">
+            <div
+                class="inline-flex items-center gap-2 text-[#92400e] font-bold tracking-widest uppercase text-xs mb-4 section-reveal">
+                <span class="w-8 h-px bg-[#92400e]"></span>
+                Foundations
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-6 section-reveal">
+                What We <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#94a3b8]">Believe.</span>
+            </h1>
+            <p class="text-xl text-[#94a3b8] max-w-2xl mx-auto section-reveal">
+                At CDA Community, our faith is built on the life and teachings of Jesus, rooted in the Bible, and lived
+                out in community.
+            </p>
+        </div>
+    </header>
+
+    <!-- Intro Statement -->
+    <section class="py-16 bg-[#0f172a] relative">
+        <div class="max-w-4xl mx-auto px-4 md:px-8 text-center">
+            <p class="text-lg md:text-xl text-gray-300 leading-relaxed font-light italic section-reveal">
+                "Seventh-day Adventists are Christians who believe in a God who passionately loves humanity, is actively
+                rescuing us from the destructive power of sin, and will soon return to save all who are willing from the
+                final destruction that makes way for a new creation. We believe the Bible to be the only trustworthy
+                standard for faith and practice. All that we believe and the life we seek to live grows out of six
+                essential truths about God we have discovered in the compelling self-portrait he has painted through the
+                scriptures."
+            </p>
+        </div>
+    </section>
+
+    <!-- What We Believe - 6 Pillars -->
+    <section class="py-24 bg-gradient-to-b from-[#0f172a] to-[#1e293b]/20">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 gap-24">
+
+                <!-- God: We Believe that God Loves -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center section-reveal">
+                    <div
+                        class="relative group overflow-hidden rounded-[2.5rem] aspect-[4/3] lg:aspect-square border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1544427928-c49cdfebf4ad?q=80&w=1000&auto=format&fit=crop"
+                            alt="God Loves"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60">
+                        </div>
+                        <div class="absolute top-8 left-8">
+                            <span
+                                class="px-4 py-1.5 bg-[#92400e] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">God</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-bold tracking-tight">We Believe that God Loves</h2>
+                        <p class="text-lg text-[#94a3b8] leading-relaxed">
+                            God is love, power, and splendor—and God is a mystery. His ways are far beyond us, but He
+                            still reaches out to us. God is infinite yet intimate, three yet one, all-knowing yet
+                            all-forgiving. We will spend eternity cherishing an ever-deepening relationship with God the
+                            Father, Son and Holy Spirit.
+                        </p>
+                        <a href="https://www.adventist.org/god/" target="_blank"
+                            class="inline-flex items-center gap-3 text-[#92400e] font-bold uppercase tracking-widest text-xs hover:text-white transition-colors group">
+                            Read More
+                            <iconify-icon icon="solar:arrow-right-linear"
+                                class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Humanity: We Believe God Creates -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center section-reveal lg:flex-row-reverse">
+                    <div
+                        class="lg:order-2 relative group overflow-hidden rounded-[2.5rem] aspect-[4/3] lg:aspect-square border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop"
+                            alt="God Creates"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60">
+                        </div>
+                        <div class="absolute top-8 left-8">
+                            <span
+                                class="px-4 py-1.5 bg-[#92400e] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">Humanity</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6 lg:order-1 lg:text-right">
+                        <h2 class="text-4xl font-bold tracking-tight">We Believe God Creates</h2>
+                        <p class="text-lg text-[#94a3b8] leading-relaxed">
+                            From neurons to nebulae, DNA to distant galaxies, we are surrounded by wonder. Yet the
+                            beauty is broken. The destructive power of sin disfigures all that God declared good in the
+                            beginning.
+                        </p>
+                        <a href="https://www.adventist.org/humanity/" target="_blank"
+                            class="inline-flex items-center gap-3 text-[#92400e] font-bold uppercase tracking-widest text-xs hover:text-white transition-colors group lg:flex-row-reverse">
+                            Read More
+                            <iconify-icon icon="solar:arrow-right-linear"
+                                class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Salvation: We Believe God Redeems -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center section-reveal">
+                    <div
+                        class="relative group overflow-hidden rounded-[2.5rem] aspect-[4/3] lg:aspect-square border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1000&auto=format&fit=crop"
+                            alt="God Redeems"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60">
+                        </div>
+                        <div class="absolute top-8 left-8">
+                            <span
+                                class="px-4 py-1.5 bg-[#92400e] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">Salvation</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-bold tracking-tight">We Believe God Redeems</h2>
+                        <p class="text-lg text-[#94a3b8] leading-relaxed">
+                            God was not willing to abandon all the created to destruction. Through His Son Jesus Christ
+                            He has defeated the power of death and given us new life. He has begun the process of
+                            eradicating sin from the universe and restoring all creation to its original perfection and
+                            beauty.
+                        </p>
+                        <a href="https://www.adventist.org/salvation/" target="_blank"
+                            class="inline-flex items-center gap-3 text-[#92400e] font-bold uppercase tracking-widest text-xs hover:text-white transition-colors group">
+                            Read More
+                            <iconify-icon icon="solar:arrow-right-linear"
+                                class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Church: We believe that God Inhabits -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center section-reveal lg:flex-row-reverse">
+                    <div
+                        class="lg:order-2 relative group overflow-hidden rounded-[2.5rem] aspect-[4/3] lg:aspect-square border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?q=80&w=1000&auto=format&fit=crop"
+                            alt="God Inhabits"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60">
+                        </div>
+                        <div class="absolute top-8 left-8">
+                            <span
+                                class="px-4 py-1.5 bg-[#92400e] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">Church</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6 lg:order-1 lg:text-right">
+                        <h2 class="text-4xl font-bold tracking-tight">We believe that God Inhabits</h2>
+                        <p class="text-lg text-[#94a3b8] leading-relaxed">
+                            Jesus left His followers with an epic mission: tell the world of His love and His promise to
+                            return. Also, they should love people the way He loved them. Entrusting humans with His
+                            message was a bold and risky move. But even though God knew people would often fail Him and
+                            even distort His truth, He wanted to work with us.
+                        </p>
+                        <a href="https://www.adventist.org/church/" target="_blank"
+                            class="inline-flex items-center gap-3 text-[#92400e] font-bold uppercase tracking-widest text-xs hover:text-white transition-colors group lg:flex-row-reverse">
+                            Read More
+                            <iconify-icon icon="solar:arrow-right-linear"
+                                class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Living: We believe that God Transforms -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center section-reveal">
+                    <div
+                        class="relative group overflow-hidden rounded-[2.5rem] aspect-[4/3] lg:aspect-square border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1499209974431-9dac3adaf471?q=80&w=1000&auto=format&fit=crop"
+                            alt="God Transforms"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60">
+                        </div>
+                        <div class="absolute top-8 left-8">
+                            <span
+                                class="px-4 py-1.5 bg-[#92400e] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">Living</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-bold tracking-tight">We believe that God Transforms</h2>
+                        <p class="text-lg text-[#94a3b8] leading-relaxed">
+                            Those who accept God’s offer of a new life through His Son Jesus begin the process of being
+                            transformed into that new life. God’s law is a reflection of his perfect ideal and becomes a
+                            mirror that reveals our faults, convicts us of sin and offers us a pattern of a holistic
+                            relationship with God, ourselves, and others.
+                        </p>
+                        <a href="https://www.adventist.org/living/" target="_blank"
+                            class="inline-flex items-center gap-3 text-[#92400e] font-bold uppercase tracking-widest text-xs hover:text-white transition-colors group">
+                            Read More
+                            <iconify-icon icon="solar:arrow-right-linear"
+                                class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Restoration: We believe that God Triumphs -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center section-reveal lg:flex-row-reverse">
+                    <div
+                        class="lg:order-2 relative group overflow-hidden rounded-[2.5rem] aspect-[4/3] lg:aspect-square border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000&auto=format&fit=crop"
+                            alt="God Triumphs"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60">
+                        </div>
+                        <div class="absolute top-8 left-8">
+                            <span
+                                class="px-4 py-1.5 bg-[#92400e] text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">Restoration</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6 lg:order-1 lg:text-right">
+                        <h2 class="text-4xl font-bold tracking-tight">We believe that God Triumphs</h2>
+                        <p class="text-lg text-[#94a3b8] leading-relaxed">
+                            Scriptures reveal that the problem of sin began in heaven before being exported to earth. It
+                            began with doubts sowed by Lucifer about God. In order to bring an end to that doubt, God
+                            has engaged in an open process of investigation. The evidence for all decisions will be
+                            clearly established and God’s character will ultimately be vindicated.
+                        </p>
+                        <a href="https://www.adventist.org/restoration/" target="_blank"
+                            class="inline-flex items-center gap-3 text-[#92400e] font-bold uppercase tracking-widest text-xs hover:text-white transition-colors group lg:flex-row-reverse">
+                            Read More
+                            <iconify-icon icon="solar:arrow-right-linear"
+                                class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 pt-20 border-t border-white/5 bg-[#0f172a]">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 md:col-span-2 space-y-8">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-[#92400e] rounded-xl flex items-center justify-center">
+                            <iconify-icon icon="solar:church-linear" width="24" class="text-white"></iconify-icon>
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight">CdA Community</span>
+                    </a>
+                    <p class="text-[#94a3b8] max-w-xs leading-relaxed">
+                        A place of hope, healing, and genuine connection in the heart of Coeur d'Alene.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#92400e]/20 hover:border-[#92400e]/50 transition-all">
+                            <iconify-icon icon="line-md:facebook"></iconify-icon>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#92400e]/20 hover:border-[#92400e]/50 transition-all">
+                            <iconify-icon icon="line-md:instagram"></iconify-icon>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#92400e]/20 hover:border-[#92400e]/50 transition-all">
+                            <iconify-icon icon="line-md:youtube"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-white uppercase tracking-widest text-xs">Navigation</h4>
+                    <ul class="space-y-4 text-sm text-[#94a3b8]">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="beliefs.html" class="hover:text-white transition-colors">What We Believe</a></li>
+                        <li><a href="index.html#gathering" class="hover:text-white transition-colors">Worship</a></li>
+                        <li><a href="index.html#community" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-white uppercase tracking-widest text-xs">Gathering Times</h4>
+                    <div class="space-y-4 text-sm text-[#94a3b8]">
+                        <div>
+                            <p class="text-white font-medium">Saturday Service</p>
+                            <p class="mt-1">11:15 AM - Main Worship</p>
+                            <p class="mt-1">10:00 AM - Study Groups</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-8 border-t border-white/5 text-center text-xs text-gray-500">
+                &copy; 2024 CDA Seventh-day Adventist Church. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'visible');
+            mobileMenu.style.pointerEvents = 'auto';
+            gsap.from("#mobile-menu nav a", {
+                x: -30,
+                opacity: 0,
+                stagger: 0.1,
+                duration: 0.8,
+                ease: "expo.out"
+            });
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+            mobileMenu.style.pointerEvents = 'none';
+        });
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+                mobileMenu.style.pointerEvents = 'none';
+            });
+        });
+
+        // GSAP Initialization
+        gsap.from(".section-reveal", {
+            y: 30,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.1,
+            ease: "expo.out",
+            delay: 0.4
+        });
+    </script>
+</body>
+
+</html>
